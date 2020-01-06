@@ -18,14 +18,12 @@
     {
       "name" : "worker",
       "image" : "minghaoh/multi-worker",
-      "hostname" : "worker",
       "essential": false,
       "memory" : 128
     },
     {
       "name" : "nginx",
       "image" : "minghaoh/multi-nginx",
-      "hostname" : "nginx",
       "essential": true,
       "portMappings": [
         {
