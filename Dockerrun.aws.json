@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion" : 2,
+  "containerDefinitions" : [
+    {
+      "name" : "client",
+      "image" : "minghaoh/multi-client",
+      "hostname" : "client",
+      "essential": false
+    },
+    {
+      "name" : "server",
+      "image" : "minghaoh/multi-server",
+      "hostname" : "api",
+      "essential": false
+    },
+    {
+      "name" : "worker",
+      "image" : "minghaoh/multi-worker",
+      "hostname" : "worker",
+      "essential": false
+    },
+    {
+      "name" : "nginx",
+      "image" : "minghaoh/multi-nginx",
+      "hostname" : "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
